@@ -1,0 +1,34 @@
+{
+  "name": "dreamforce17",
+  "version": "1.0.0",
+  "description": "Webpack setup for local development",
+  "main": "app.js",
+  "scripts": {
+    "test": "test",
+    "start": "webpack-dev-server --https",
+    "prod-bundle": "webpack --optimize-minimize",
+    "deployjs": "mavensmate compile-metadata src/staticresources/bundle_js.resource",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "author": "Drew Fattlar",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^4.2.3",
+    "mavensmate": "^1.0.0-beta.32",
+    "webpack": "^3.5.6",
+    "webpack-dev-server": "^2.9.1"
+  },
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
+}
