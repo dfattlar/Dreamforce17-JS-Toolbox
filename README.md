@@ -20,10 +20,10 @@ First you’ll need to create a Force.com project, follow the steps near the bot
 The most important part of the Visualforce Page is having have the two script tags pointing to _bundle_js.resource_, and _localhost_. The _localhost_ tag should be uncommented when working locally, while _bundle_js.resource_ should be commented out. When going to production, switch this so that the _localhost_ tag is commented out and _bundle_js.resources_ in uncommented. See the _dfdemo.page_ in the example directory for an example of how the tags should look when developing locally. You can copy the contents, but not the file itself - create the page and any static resource from mavensmate to correctly generate the metadata file also.
 
 Next you can copy the following files from this repo into the root of your project:
-•    package.json
-•    webpack.config.js
-•    bundle-to-resource.js
-•    .babelrc
+*   package.json
+*   webpack.config.js
+*   bundle-to-resource.js
+*   .babelrc
 
 We can then install our node modules by opening the terminal at your project directory and running:
 
@@ -35,7 +35,7 @@ This will install all of the required node modules into the node_modules folder.
     npm uninstall draggable –save
     (use –save-dev if the package is listed under devDependecies in package.json)
     
-**** Important:
+###### Important:
 You will also need to create the directory _/app_ and add an _app.js_ file to it. Webpack will be looking to serve that file.
 
 ## Fire Up Webpack:
@@ -48,7 +48,7 @@ To kill the server at any time, press Control + C in the terminal.
 When Webpack gets started, you see that it is running on port 8080:
 Project is running at https://localhost:8080/
 
-**** Important:
+###### Important:
 Navigate to https://localhost:8080 to make sure it is accessible. If you don’t see a listing of your directories, but instead a warning that (in Chrome) “Your connection is not private” you will need to click the Advanced options link and select “Proceed to Localhost (unsafe)”. In Firefox, you may be asked to make a security exception for localhost.
 
 ![Chrome Localhost Error](/img/localhost-proceed.png?raw=true "Chrome Localhost Error")
