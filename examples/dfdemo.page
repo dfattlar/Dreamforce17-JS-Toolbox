@@ -1,0 +1,120 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" applyHtmlTag="false" controller="CTL_Dreamforce17" docType="html-5.0">
+	<head>
+		<script type="text/javascript">
+			// Sometimes you'll need to use variables from your apex controller in a JS context.
+			// Set those variables here to the global JS scope so they are accessible.
+			// I usually attach each variable to a single object so that only one var is on
+			// the global scope.
+			var sfEnv = {};
+			sfEnv.vfrAccounts = '{!JSENCODE($RemoteAction.CTL_Dreamforce17.getAccounts)}';
+		</script>
+		<apex:slds />
+		<style>
+			/* There are resources for including CSS (or Sass or Less) in webpack but it can get a little tricky
+				At the very least, your CSS should be in an external file, including here for simplicity */
+			.slds-scope .drag-header {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding: 0;
+			    position: fixed;
+			    width: 100%;
+			    top: 0;
+			    z-index: 100;
+			}
+			.slds-scope .col {
+				flex-grow: 1;
+			  padding: 16px;
+			  display: flex;
+			  justify-content: center;
+			  align-items: center;
+			}
+			.background-call {
+				background-color: rgba(136, 198, 81,0.2);
+			}
+			.background-email {
+				background-color: rgba(105, 155, 255,0.2);
+			}
+			.background-close {
+				background-color: rgba(248, 137, 98,0.2);
+			}
+			.card-width {
+				max-width: 350px;
+			}
+			.account-list {
+				position: absolute;
+				top: 64px;
+				left: 0;
+				right: 0;
+				bottom: 0;
+			}
+			.account-list article {
+				top: 40px;
+			}
+			.account-list article:nth-child(1) {
+				left: 260px;
+			}
+			.account-list article:nth-child(2) {
+				left: 300px;
+				top: -40px;
+			}
+			.account-list article:nth-child(3) {
+				left: 340px;
+				top: -120px;
+			}
+			.account-list article:nth-child(4) {
+				left: 380px;
+				top: -240px;
+			}
+			.account-list article:nth-child(5) {
+				left: 420px;
+				top: -360px;
+			}
+		</style>
+	</head>
+	<body class="slds-scope">
+		<div class="slds-page-header drag-header">
+			<div class="col background-call">
+				<span class="slds-media__figure">
+		      <span class="slds-icon_container slds-icon-standard-product-request" title="Description of icon when needed">
+		        <svg class="slds-icon slds-page-header__icon" aria-hidden="true">
+		          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/apexpages/slds/latest/assets/icons/standard-sprite/svg/symbols.svg#call" />
+		        </svg>
+		      </span>
+			  </span>
+		  	<h1 class="slds-page-header__title slds-truncate" title="Account List">Call List</h1>
+		  </div>
+		  <div class="col background-email">
+				<span class="slds-media__figure">
+		      <span class="slds-icon_container slds-icon-standard-poll" title="Description of icon when needed">
+		        <svg class="slds-icon slds-page-header__icon" aria-hidden="true">
+		          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/apexpages/slds/latest/assets/icons/standard-sprite/svg/symbols.svg#email" />
+		        </svg>
+		      </span>
+			  </span>
+		  	<h1 class="slds-page-header__title slds-truncate" title="Account List">Email List</h1>
+		  </div>
+		  <div class="col background-close">
+				<span class="slds-media__figure">
+		      <span class="slds-icon_container slds-icon-standard-product-transfer" title="Description of icon when needed">
+		        <svg class="slds-icon slds-page-header__icon" aria-hidden="true">
+		          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/apexpages/slds/latest/assets/icons/standard-sprite/svg/symbols.svg#task" />
+		        </svg>
+		      </span>
+			  </span>
+		  	<h1 class="slds-page-header__title slds-truncate" title="Account List">Close List</h1>
+		  </div>
+		</div>
+		<div class="account-list js-account-list"></div>
+
+		<!--
+			**********************************************************************************
+			For Local Development: Uncomment the localhost tag, comment out the bundle_js tag
+			For Prod: Comment out the localhost tag, uncomment the bundle_js tag
+			(Currently set to local dev)
+			**********************************************************************************
+		-->
+		<script src="https://localhost:8080/bundle.js" type="text/javascript"></script>
+		<!-- <script type='text/javascript' src='{!$Resource.bundle_js}'></script> -->
+	</body>
+</apex:page>
